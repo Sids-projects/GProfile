@@ -1,0 +1,406 @@
+<section class="p-4">
+  <h2 class="formTitle mb-4">Fill Details</h2>
+  <form [formGroup]="dataForm" class="row g-3">
+    <div class="col-md-3">
+      <div class="input-group">
+        <span class="input-group-text">
+          <i class="fa-solid fa-circle-exclamation impIcon"></i>
+        </span>
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="formId"
+            placeholder="Form ID"
+          />
+          <label for="formId">Form ID</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <div class="input-group">
+        <span class="input-group-text">
+          <i class="fa-solid fa-location-dot impIcon"></i>
+        </span>
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="location"
+            placeholder="Username"
+          />
+          <label for="location">Location</label>
+        </div>
+      </div>
+    </div>
+
+    <div
+      formArrayName="hotelDetails"
+      *ngFor="let hotelDetail of hotelDetails.controls; let i = index"
+      class="col-md-12"
+    >
+      <div [formGroupName]="i" class="row g-3">
+        <div class="col-md-4">
+          <div class="input-group">
+            <span class="input-group-text">
+              <i class="fa-solid fa-bed impIcon"></i>
+            </span>
+            <div class="form-floating">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="hotelName"
+                placeholder="Hotel Name"
+              />
+              <label for="hotelName">Hotel Name</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="input-group">
+            <span class="input-group-text">
+              <i class="fa-solid fa-phone-volume impIcon"></i>
+            </span>
+            <div class="form-floating">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="hotelContact"
+                placeholder="Hotel Contact"
+              />
+              <label for="hotelContact">Hotel Contact</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="input-group">
+            <span class="input-group-text">
+              <i class="fa-solid fa-credit-card impIcon"></i>
+            </span>
+            <div class="form-floating">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="advanceAmt"
+                placeholder="Advance Amount"
+              />
+              <label for="advanceAmt">Advance Amount</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="input-group">
+            <span class="input-group-text">
+              <i class="fa-solid fa-door-closed impIcon"></i>
+            </span>
+            <div class="form-floating">
+              <input
+                type="date"
+                class="form-control"
+                formControlName="checkIn"
+                placeholder="dd/mm/yyyy"
+              />
+              <label for="checkIn">CheckIn</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="input-group">
+            <span class="input-group-text">
+              <i class="fa-solid fa-door-open impIcon"></i>
+            </span>
+            <div class="form-floating">
+              <input
+                type="date"
+                class="form-control"
+                formControlName="checkOut"
+                placeholder="dd/mm/yyyy"
+              />
+              <label for="checkOut">CheckOut</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12 mt-3">
+      <button
+        type="button"
+        class="btn btn-secondary"
+        (click)="addHotelDetail()"
+      >
+        Add Hotel Detail
+      </button>
+    </div>
+
+    <div class="col-md-3">
+      <div class="input-group">
+        <span class="input-group-text">
+          <i class="fa-solid fa-star-of-life impIcon"></i>
+        </span>
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="pax"
+            placeholder="Pax"
+          />
+          <label for="pax">No of Pax</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="input-group">
+        <span class="input-group-text">
+          <i class="fa-solid fa-child impIcon"></i>
+        </span>
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="adultCount"
+            placeholder="Adult Count"
+          />
+          <label for="adultCount">Adult</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="input-group">
+        <span class="input-group-text">
+          <i class="fa-solid fa-child-reaching impIcon"></i>
+        </span>
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="childCount"
+            placeholder="Child Count"
+          />
+          <label for="childCount">Child</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="input-group">
+        <span class="input-group-text">
+          <i class="fa-solid fa-baby-carriage impIcon"></i>
+        </span>
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="childage"
+            placeholder="Child Age"
+          />
+          <label for="childage">Child Age</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="input-group">
+        <span class="input-group-text">
+          <i class="fa-solid fa-person-booth impIcon"></i>
+        </span>
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="noOfRooms"
+            placeholder="Rooms"
+          />
+          <label for="noOfRooms">Rooms</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="input-group">
+        <span class="input-group-text">
+          <i class="fa-solid fa-people-line impIcon"></i>
+        </span>
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="occupancy"
+            placeholder="Occupancy"
+          />
+          <label for="occupancy">Occupancy</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="input-group">
+        <span class="input-group-text">
+          <i class="fa-solid fa-burger impIcon"></i>
+        </span>
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="mealPlan"
+            placeholder="Meal Plan"
+          />
+          <label for="mealPlan">Meal Plan</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <div class="input-group">
+        <span class="input-group-text">
+          <i class="fa-solid fa-taxi impIcon"></i>
+        </span>
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="cabName"
+            placeholder="Cab Name"
+          />
+          <label for="cabName">Cab Name</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="input-group">
+        <span class="input-group-text">
+          <i class="fa-solid fa-phone-volume impIcon"></i>
+        </span>
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="cabContact"
+            placeholder="Cab Contact"
+          />
+          <label for="cabContact">Cab Contact</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="col-md-6">
+      <div class="input-group">
+        <span class="input-group-text">
+          <i class="fa-solid fa-user impIcon"></i>
+        </span>
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="cusName"
+            placeholder="Customer Name"
+          />
+          <label for="cusName">Customer Name</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="input-group">
+        <span class="input-group-text">
+          <i class="fa-solid fa-phone-volume impIcon"></i>
+        </span>
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="cusContact"
+            placeholder="Customer Contact"
+          />
+          <label for="cusContact">Customer Contact</label>
+        </div>
+      </div>
+    </div> -->
+
+    <div
+      formArrayName="customerDetails"
+      *ngFor="let customerDetail of customerDetails.controls; let j = index"
+      class="col-md-12"
+    >
+      <div [formGroupName]="j" class="row g-3">
+        <div class="col-md-6">
+          <div class="input-group">
+            <span class="input-group-text">
+              <i class="fa-solid fa-user impIcon"></i>
+            </span>
+            <div class="form-floating">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="cusName"
+                placeholder="Customer Name"
+              />
+              <label for="cusName">Customer Name</label>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="input-group">
+            <span class="input-group-text">
+              <i class="fa-solid fa-phone-volume impIcon"></i>
+            </span>
+            <div class="form-floating">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="cusContact"
+                placeholder="Customer Contact"
+              />
+              <label for="cusContact">Customer Contact</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12 mt-3">
+      <button
+        type="button"
+        class="btn btn-secondary"
+        (click)="addCustomerDetail()"
+      >
+        Add Customer Detail
+      </button>
+    </div>
+
+    <div class="col-md-12">
+      <div class="input-group">
+        <span class="input-group-text">
+          <i class="fa-solid fa-note-sticky impIcon"></i>
+        </span>
+        <div class="form-floating">
+          <textarea
+            class="form-control"
+            formControlName="note"
+            placeholder="note"
+          ></textarea>
+          <label for="note">Note</label>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="col-md-12 d-flex justify-content-end mt-4">
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="saveExcel()"
+      value="Submit"
+    >
+      Submit
+    </button>
+  </div>
+</section>
